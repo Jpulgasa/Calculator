@@ -59,7 +59,7 @@ operatorBtns.forEach((button) => {
             displayContent = "";
         } else if (button.textContent === "=") {
             numberTwo = parseFloat(displayContent);
-            const result = operate(operator, numberOne, numberTwo);
+            const result = Math.round(operate(operator, numberOne, numberTwo) * 100) / 100;
             display.textContent = result;
             displayContent = result;
         } else {
@@ -71,5 +71,3 @@ operatorBtns.forEach((button) => {
         }
     })
 })
-
-
