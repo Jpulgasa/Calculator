@@ -47,9 +47,6 @@ calculatorBtns.forEach((button) => {
     button.addEventListener("click", () => {
     display.textContent += button.textContent;
     displayContent += button.textContent;
-    /* numberOne = displayContent;
-    displayContent = "";*/
-    //console.log(displayContent); 
     })
 });
 
