@@ -6,6 +6,7 @@ let numberOne = 0;
 let numberTwo = 0;
 let operator = "";
 let displayContent = "";
+let shouldDisplayContent = true;
 
 function add (numA, numB) {
     const result = numA + numB;
@@ -45,8 +46,16 @@ function operate (operator, numberOne, numberTwo) {
 
 calculatorBtns.forEach((button) => {
     button.addEventListener("click", () => {
-    display.textContent += button.textContent;
-    displayContent += button.textContent;
+        if (shouldDisplayContent) {
+            display.textContent += button.textContent;
+            displayContent += button.textContent;
+        } else {
+            display.textContent = "";
+            displayContent = "";
+            display.textContent += button.textContent;
+            displayContent += button.textContent;
+            shouldDisplayContent = true;
+        }
     })
 });
 
@@ -56,12 +65,17 @@ operatorBtns.forEach((button) => {
             numberOne = parseFloat(displayContent);
             operator = button.textContent;
             display.textContent = "";
-            displayContent = "";
-        } else if (button.textContent === "=") {
+            displayContent = ""; 
+        } else if (button.textContent === "=" && display.textContent !== "") {
             numberTwo = parseFloat(displayContent);
             const result = Math.round(operate(operator, numberOne, numberTwo) * 100) / 100;
-            display.textContent = result;
-            displayContent = result;
+            shouldDisplayContent = false;
+            if (operator === "÷" && numberTwo === 0) {
+                display.textContent = "Are you fucking crazy?";
+            } else {
+                display.textContent = result;
+                displayContent = result;
+            }
         } else {
             numberOne = 0;
             numberTwo = 0;
@@ -69,5 +83,5 @@ operatorBtns.forEach((button) => {
             displayContent = "";
             display.textContent = "";
         }
-    })
-})
+    });
+});
