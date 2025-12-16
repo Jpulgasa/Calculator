@@ -61,7 +61,7 @@ calculatorBtns.forEach((button) => {
 
 operatorBtns.forEach((button) => {
     button.addEventListener("click", () => {
-        if (button.textContent !== "=" && button.textContent !== "C") {
+        if (button.textContent !== "=" && button.textContent !== "C" && button.textContent !== "Del") {
             numberOne = parseFloat(displayContent);
             operator = button.textContent;
             display.textContent = "";
@@ -75,6 +75,14 @@ operatorBtns.forEach((button) => {
             } else {
                 display.textContent = result;
                 displayContent = result;
+            }
+        } else if (button.textContent === "Del") {
+            if (display.textContent !== "") {
+                let toStringContent = displayContent.toString();
+                toStringContent = toStringContent.slice(0,-1);
+                display.textContent = toStringContent;
+                displayContent = toStringContent;
+                console.log("Del was pressed");
             }
         } else {
             numberOne = 0;
