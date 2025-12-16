@@ -37,7 +37,7 @@ function operate (operator, numberOne, numberTwo) {
         return add(numberOne, numberTwo);
     } else if (operator === "-") {
         return subtract(numberOne, numberTwo);
-    } else if (operator === "X") {
+    } else if (operator === "x") {
         return multiply(numberOne, numberTwo);
     } else if (operator === "÷") {
         return divide(numberOne, numberTwo);

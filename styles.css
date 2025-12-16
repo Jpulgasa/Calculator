@@ -57,6 +57,11 @@ button {
     font-size: xx-large;
 }
 
+.span-two {
+    width: 168px;
+    border-radius: 10px;
+}
+
 button:hover {
     background-color: #ff7b0089;
     cursor: pointer;
