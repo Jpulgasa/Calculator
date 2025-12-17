@@ -8,7 +8,6 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    /* Flexbox to center the calculator on the screen */
     display: flex;
     flex-direction: column;
     justify-content: center;

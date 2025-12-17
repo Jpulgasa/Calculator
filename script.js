@@ -82,7 +82,6 @@ operatorBtns.forEach((button) => {
                 toStringContent = toStringContent.slice(0,-1);
                 display.textContent = toStringContent;
                 displayContent = toStringContent;
-                console.log("Del was pressed");
             }
         } else {
             numberOne = 0;
